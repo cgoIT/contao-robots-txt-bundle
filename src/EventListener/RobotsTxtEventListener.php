@@ -16,21 +16,16 @@ use Contao\CoreBundle\Event\ContaoCoreEvents;
 use Contao\CoreBundle\Event\RobotsTxtEvent;
 use Contao\CoreBundle\Routing\PageFinder;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use webignition\RobotsTxt\Directive\Directive;
-use webignition\RobotsTxt\Directive\UserAgentDirective;
 use webignition\RobotsTxt\File\Parser;
-use webignition\RobotsTxt\Inspector\Inspector;
-use webignition\RobotsTxt\Record\Record;
 
 #[AsEventListener(ContaoCoreEvents::ROBOTS_TXT, priority: 999)]
 class RobotsTxtEventListener
 {
     public function __construct(
         private readonly RequestStack $requestStack,
-        private readonly PageFinder   $pageFinder,
+        private readonly PageFinder $pageFinder,
     ) {
     }
 
@@ -47,7 +42,6 @@ class RobotsTxtEventListener
             $parser->setSource(file_get_contents($rootPage->externalRobotsConfigUrl));
 
             $originalFile = $event->getFile();
-            $inspector = new Inspector($originalFile);
 
             foreach ($parser->getFile()->getRecords() as $record) {
                 $originalFile->addRecord($record);
