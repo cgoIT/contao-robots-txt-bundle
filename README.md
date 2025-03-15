@@ -1,20 +1,26 @@
-# Contao 4 and 5 Calendar Modules and Content Elements (CMACE) Bundle
+# Contao robot.txt Bundle
 
-[![](https://img.shields.io/packagist/v/cgoit/contao-cmace-bundle.svg)](https://packagist.org/packages/cgoit/contao-cmace-bundle)
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FcgoIT%2Fcontao-cmace-bundle%2Fmain%2Fcomposer.json&query=%24.require%5B%22contao%2Fcore-bundle%22%5D&label=Contao%20Version)
-[![](https://img.shields.io/packagist/dt/cgoit/contao-cmace-bundle.svg)](https://packagist.org/packages/cgoit/contao-cmace-bundle)
-[![CI](https://github.com/cgoIT/contao-cmace-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/cgoIT/contao-cmace-bundle/actions/workflows/ci.yml)
+[![](https://img.shields.io/packagist/v/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FcgoIT%2Fcontao-robots-txt-bundle%2Fmain%2Fcomposer.json&query=%24.require%5B%22contao%2Fcore-bundle%22%5D&label=Contao%20Version)
+[![](https://img.shields.io/packagist/dt/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
+[![CI](https://github.com/cgoIT/contao-robots-txt-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/cgoIT/contao-robots-txt-bundle/actions/workflows/ci.yml)
 
-This bundle adds some new modules and content elements to display calendar events in the frontend.
+You have multiple contao installations? You're tired of configuring the same additional robots.txt stuff in every installation?
+You always miss some installation if you update the additional robots.txt stuff?
+Then this bundle is the right for you!
 
-Currently there are the following modules and content elements:
+Just place your global robot.txt anywhere where it's accessible for your installations...
 
-| Name | As Module | As Content Element | Description |
-| ---- |-----------|--------------------| ----------- |
-| Fixed Range | yes       | yes                | Displays Events in a fixed time range. It's also possible to add a short text to the events. Useful for e.g. a weekly report about the last events |
+- a file in the filesystem
+- reachable via http
+- ...
+
+You can use everything that can be loaded via PHPs `file_get_contents`.
+
+The content of this global robots.txt file is then merged to your installation. So you still have the option to add stuff specific for one contao installation/root page.
 
 ## Install
 
 ```bash
-composer require cgoit/contao-cmace-bundle
+composer require cgoit/contao-robots-txt-bundle
 ```

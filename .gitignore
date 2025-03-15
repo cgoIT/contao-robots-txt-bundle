@@ -9,6 +9,9 @@
 # Tools
 /tools/*/vendor
 
+# Test data
+/external-robots.txt
+
 # PHPStorm
 .idea/
 

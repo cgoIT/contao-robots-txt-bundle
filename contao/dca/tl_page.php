@@ -11,7 +11,7 @@
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 PaletteManipulator::create()
-    ->addField('useExternalRobotsConfig', 'robotsTxt', PaletteManipulator::POSITION_APPEND)
+    ->addField('useExternalRobotsConfig', 'robotsTxt', PaletteManipulator::POSITION_AFTER)
     ->applyToPalette('rootfallback', 'tl_page')
 ;
 
@@ -20,7 +20,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'] = array_merge(
     $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'],
 );
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['useExternalRobotsConfig'] = 'useExternalRobotsConfig,externalRobotsConfigUrl';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['useExternalRobotsConfig'] = 'externalRobotsConfigUrl';
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['useExternalRobotsConfig'] = [
     'exclude' => true,
@@ -33,6 +33,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['useExternalRobotsConfig'] = [
 $GLOBALS['TL_DCA']['tl_page']['fields']['externalRobotsConfigUrl'] = [
     'search' => true,
     'inputType' => 'text',
-    'eval' => ['mandatory' => true, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'],
+    'eval' => ['mandatory' => true, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w100'],
     'sql' => ['type' => 'text', 'length' => 2048, 'notnull' => false],
 ];

@@ -14,33 +14,44 @@ namespace Cgoit\RobotsTxtBundle\EventListener;
 
 use Contao\CoreBundle\Event\ContaoCoreEvents;
 use Contao\CoreBundle\Event\RobotsTxtEvent;
+use Contao\CoreBundle\Routing\PageFinder;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use webignition\RobotsTxt\Directive\Directive;
 use webignition\RobotsTxt\Directive\UserAgentDirective;
+use webignition\RobotsTxt\File\Parser;
 use webignition\RobotsTxt\Inspector\Inspector;
 use webignition\RobotsTxt\Record\Record;
 
-#[AsEventListener(ContaoCoreEvents::ROBOTS_TXT)]
+#[AsEventListener(ContaoCoreEvents::ROBOTS_TXT, priority: 999)]
 class RobotsTxtEventListener
 {
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly PageFinder   $pageFinder,
+    ) {
+    }
+
     public function __invoke(RobotsTxtEvent $event): void
     {
-        $file = $event->getFile();
-        $inspector = new Inspector($file);
+        $rootPage = $this->pageFinder->findRootPageForHostAndLanguage($this->requestStack->getCurrentRequest()->getHost());
 
-        // Check if a "User-Agent: *" directive is not already present
-        if (0 === $inspector->getDirectives()->getLength()) {
-            $record = new Record();
-
-            $userAgentDirectiveList = $record->getUserAgentDirectiveList();
-            $userAgentDirectiveList->add(new UserAgentDirective('*'));
-
-            $file->addRecord($record);
+        if (!$rootPage) {
+            throw new NotFoundHttpException();
         }
 
-        foreach ($file->getRecords() as $record) {
-            $directiveList = $record->getDirectiveList();
-            $directiveList->add(new Directive('Disallow', '/dummy/'));
+        if (!empty($rootPage->useExternalRobotsConfig)) {
+            $parser = new Parser();
+            $parser->setSource(file_get_contents($rootPage->externalRobotsConfigUrl));
+
+            $originalFile = $event->getFile();
+            $inspector = new Inspector($originalFile);
+
+            foreach ($parser->getFile()->getRecords() as $record) {
+                $originalFile->addRecord($record);
+            }
         }
     }
 }
