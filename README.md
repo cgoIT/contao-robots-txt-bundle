@@ -17,7 +17,7 @@ Just place your global robot.txt anywhere where it's accessible for your install
 
 You can use everything that can be loaded via PHPs `file_get_contents`.
 
-The content of this global robots.txt file is then merged to your installation. So you still have the option to add stuff specific for one contao installation/root page.
+The content of this global robots.txt file is then merged to your installation. So you still have the option to add stuff specific for one contao installation.
 
 ## Install
 
