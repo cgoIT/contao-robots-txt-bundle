@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.0...v1.0.1) (2025-03-16)
+
+
+### Bug Fixes
+
+* fix dependencies to be compatible with contao 5.4+ ([6fee6c8](https://github.com/cgoIT/contao-robots-txt-bundle/commit/6fee6c824761176fc6682b2083282d58a27ce48e))
+
 ## 1.0.0 (2025-03-15)
 
 
