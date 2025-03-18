@@ -1,8 +1,8 @@
 # Contao robot.txt Bundle
 
-[![](https://img.shields.io/packagist/v/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
+[![Packagist Version](https://img.shields.io/packagist/v/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
 ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FcgoIT%2Fcontao-robots-txt-bundle%2Fmain%2Fcomposer.json&query=%24.require%5B%22contao%2Fcore-bundle%22%5D&label=Contao%20Version)
-[![](https://img.shields.io/packagist/dt/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
+[![Downloads](https://img.shields.io/packagist/dt/cgoit/contao-robots-txt-bundle.svg)](https://packagist.org/packages/cgoit/contao-robots-txt-bundle)
 [![CI](https://github.com/cgoIT/contao-robots-txt-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/cgoIT/contao-robots-txt-bundle/actions/workflows/ci.yml)
 
 You have multiple contao installations? You're tired of configuring the same additional robots.txt stuff in every installation?
