@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.1...v1.0.2) (2025-03-18)
+
+
+### Miscellaneous Chores
+
+* update README ([17b6573](https://github.com/cgoIT/contao-robots-txt-bundle/commit/17b6573091a23f703e75ea6a1169166e3db5397b))
+
 ## [1.0.1](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.0...v1.0.1) (2025-03-16)
 
 
