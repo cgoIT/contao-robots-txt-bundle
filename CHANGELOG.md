@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.2...v1.1.0) (2025-03-24)
+
+
+### Features
+
+* don't throw an exception on errors reading the external file. add an entry to system log instead and proceed. ([01b3830](https://github.com/cgoIT/contao-robots-txt-bundle/commit/01b383095c774056f1c503f0775707f5de5d3063))
+
 ## [1.0.2](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.1...v1.0.2) (2025-03-18)
 
 
