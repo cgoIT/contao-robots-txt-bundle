@@ -15,6 +15,7 @@ namespace Cgoit\RobotsTxtBundle\EventListener;
 use Contao\CoreBundle\Event\ContaoCoreEvents;
 use Contao\CoreBundle\Event\RobotsTxtEvent;
 use Contao\CoreBundle\Routing\PageFinder;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -26,6 +27,7 @@ class RobotsTxtEventListener
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly PageFinder $pageFinder,
+        private readonly LoggerInterface $contaoGeneralLogger,
     ) {
     }
 
@@ -38,13 +40,17 @@ class RobotsTxtEventListener
         }
 
         if (!empty($rootPage->useExternalRobotsConfig)) {
-            $parser = new Parser();
-            $parser->setSource(file_get_contents($rootPage->externalRobotsConfigUrl));
+            try {
+                $parser = new Parser();
+                $parser->setSource(file_get_contents($rootPage->externalRobotsConfigUrl));
 
-            $originalFile = $event->getFile();
+                $originalFile = $event->getFile();
 
-            foreach ($parser->getFile()->getRecords() as $record) {
-                $originalFile->addRecord($record);
+                foreach ($parser->getFile()->getRecords() as $record) {
+                    $originalFile->addRecord($record);
+                }
+            } catch (\Exception $e) {
+                $this->contaoGeneralLogger->warning('Cannot read robots.txt file: '.$e->getMessage());
             }
         }
     }

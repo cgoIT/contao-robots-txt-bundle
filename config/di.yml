@@ -6,6 +6,7 @@ services:
       bind:
           $pageFinder: '@contao.routing.page_finder'
           $requestStack: '@request_stack'
+          $contaoGeneralLogger: '@monolog.logger.contao.general'
 
    Cgoit\RobotsTxtBundle\:
       resource: ../src/*
