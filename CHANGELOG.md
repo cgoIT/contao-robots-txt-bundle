@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.1.0...v1.1.1) (2025-08-19)
+
+
+### Miscellaneous Chores
+
+* **build:** run build with 8.2+ php ([ff559ad](https://github.com/cgoIT/contao-robots-txt-bundle/commit/ff559ad6e132a11a6d1fd2b76a531cb5011ad6f1))
+* update version contraints ([bed722c](https://github.com/cgoIT/contao-robots-txt-bundle/commit/bed722ca70ae64742da21ec671ad20007b8b9387))
+
 ## [1.1.0](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.0.2...v1.1.0) (2025-03-24)
 
 
