@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.1.1...v1.1.2) (2026-03-27)
+
+
+### Miscellaneous Chores
+
+* integrate twig-cs-fixer ([4b5de8a](https://github.com/cgoIT/contao-robots-txt-bundle/commit/4b5de8af42adb347abe7c54aebff4dd6ece75ad1))
+* rename di.yml to services.yml ([e98fbd4](https://github.com/cgoIT/contao-robots-txt-bundle/commit/e98fbd46d7ed6a7fdde19c8f8166f8a51180990c))
+* update copyright header ([cbe4efe](https://github.com/cgoIT/contao-robots-txt-bundle/commit/cbe4efe7b90735cc8b140ae8d1837034df29c81a))
+
 ## [1.1.1](https://github.com/cgoIT/contao-robots-txt-bundle/compare/v1.1.0...v1.1.1) (2025-08-19)
 
 
